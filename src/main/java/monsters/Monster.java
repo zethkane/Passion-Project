@@ -12,10 +12,11 @@ public class Monster {
     Random random = new Random();
 
     public Monster(Integer level, String name){
-        this.maxHp = 3 * level;
+        this.maxHp = 2 + level;
         this.level = level;
         this.name = name;
         this.maxDamage = level / 2;
+
     }
 
     public void setName(String name) {
