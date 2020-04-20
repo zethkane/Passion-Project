@@ -3,7 +3,7 @@ package classes;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Warrior implements Classes {
+public class Warrior extends Classes {
     private Integer level = 1;
     private Integer curretXp = 0;
     private Integer xpToNextLevel = 50;
@@ -127,6 +127,24 @@ public class Warrior implements Classes {
 
     @Override
     public void levelUp() {
+        if(this.curretXp > this.xpToNextLevel){
+            this.level += 1;
+            this.curretXp = curretXp - xpToNextLevel;
+            xpToNextLevel += (xpToNextLevel/2);
+            levelUpIncrease();
 
+        }
     }
+    public void levelUpIncrease(){
+        this.maxhp += 3;
+        this.currentHp += 3;
+        this.intelligence += 1;
+        this.wisdom += 1;
+        this.str += 2;
+        this.charisma += 2;
+        this.dexterity += 2;
+        updateStats(stats, str, charisma, intelligence, dexterity, wisdom, currentHp, level, curretXp);
+    }
+
+
 }

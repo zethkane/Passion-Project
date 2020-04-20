@@ -13,10 +13,6 @@ import java.util.TreeMap;
 public class MageTest {
 
 
-
-    @After
-
-
     @Test
     public void testClass(){
         Mage mage = new Mage();

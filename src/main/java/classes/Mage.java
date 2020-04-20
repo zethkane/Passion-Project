@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Mage implements Classes {
+public class Mage extends Classes {
     private Integer level = 1;
     private Integer curretXp = 0;
     private Integer xpToNextLevel = 50;
@@ -142,14 +142,8 @@ public class Mage implements Classes {
         this.str += 1;
         this.charisma += 2;
         this.dexterity += 1;
-        stats.put("Strength", str);
-        stats.put("Charisma", charisma);
-        stats.put("Intelligence", intelligence);
-        stats.put("Dexterity", dexterity);
-        stats.put("Wisdom", wisdom);
-        stats.put("Current HP", currentHp);
-        stats.put("Level", level);
-        stats.put("Current XP", curretXp);
+        updateStats(stats, str, charisma, intelligence, dexterity, wisdom, currentHp, level, curretXp);
     }
+
 }
 
