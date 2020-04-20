@@ -1,39 +1,32 @@
 package classes;
 
-import monsters.Chicken;
-
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Mage implements Classes {
+public class Warrior implements Classes {
     private Integer level = 1;
     private Integer curretXp = 0;
     private Integer xpToNextLevel = 50;
-    private Integer currentHp = 10;
-    private Integer maxhp = 10;
+    private Integer currentHp = 15;
+    private Integer maxhp = 15;
     private String name;
-    private Integer str = 4;
+    private Integer str = 10;
     private Integer charisma = 7;
-    private Integer intelligence = 10;
-    private Integer dexterity = 5;
-    private Integer wisdom = 10;
+    private Integer intelligence = 4;
+    private Integer dexterity = 10;
+    private Integer wisdom = 5;
     private Map<String, Integer> stats = new TreeMap<>();
 
-    public Mage() {
-       stats.put("Strength", str);
-       stats.put("Charisma", charisma);
-       stats.put("Intelligence", intelligence);
-       stats.put("Dexterity", dexterity);
-       stats.put("Wisdom", wisdom);
-       stats.put("Current HP", currentHp);
-       stats.put("Level", level);
-       stats.put("Current XP", curretXp);
+    public Warrior() {
+        stats.put("Strength", str);
+        stats.put("Charisma", charisma);
+        stats.put("Intelligence", intelligence);
+        stats.put("Dexterity", dexterity);
+        stats.put("Wisdom", wisdom);
+        stats.put("Current HP", currentHp);
+        stats.put("Level", level);
+        stats.put("Current XP", curretXp);
 
-    }
-
-    public Map<String, Integer> getStats() {
-        return stats;
     }
 
     public Integer getLevel() {
@@ -124,32 +117,16 @@ public class Mage implements Classes {
         this.wisdom = wisdom;
     }
 
+    public Map<String, Integer> getStats() {
+        return stats;
+    }
+
+    public void setStats(Map<String, Integer> stats) {
+        this.stats = stats;
+    }
+
     @Override
     public void levelUp() {
-        if(this.curretXp > this.xpToNextLevel){
-            this.level += 1;
-            this.curretXp = curretXp - xpToNextLevel;
-            xpToNextLevel += (xpToNextLevel/2);
-            levelUpIncrease();
 
-        }
-    }
-    public void levelUpIncrease(){
-        this.maxhp += 3;
-        this.currentHp += 3;
-        this.intelligence += 2;
-        this.wisdom += 2;
-        this.str += 1;
-        this.charisma += 2;
-        this.dexterity += 1;
-        stats.put("Strength", str);
-        stats.put("Charisma", charisma);
-        stats.put("Intelligence", intelligence);
-        stats.put("Dexterity", dexterity);
-        stats.put("Wisdom", wisdom);
-        stats.put("Current HP", currentHp);
-        stats.put("Level", level);
-        stats.put("Current XP", curretXp);
     }
 }
-

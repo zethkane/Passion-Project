@@ -47,9 +47,19 @@ public class MageTest {
         Integer xpExpected = 5;
         Integer levelExpected = 2;
         Integer expectedXpToLevel = 75;
+        Map<String , Integer> testStats = new TreeMap<>();
+        testStats.put("Strength", 5);
+        testStats.put("Charisma", 9);
+        testStats.put("Intelligence", 12);
+        testStats.put("Dexterity", 6);
+        testStats.put("Wisdom", 12);
+        testStats.put("Current HP",13);
+        testStats.put("Level", 2);
+        testStats.put("Current XP", 5);
 
         Assert.assertEquals(mage.getCurretXp(), xpExpected);
         Assert.assertEquals(mage.getLevel(),levelExpected);
         Assert.assertEquals(mage.getXpToNextLevel(), expectedXpToLevel);
+        Assert.assertEquals(mage.getStats(), testStats );
     }
 }
