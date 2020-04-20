@@ -1,7 +1,9 @@
 package testclasses;
 
 import classes.Mage;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,6 +11,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class MageTest {
+
+
+
+    @After
+
 
     @Test
     public void testClass(){
@@ -19,7 +26,7 @@ public class MageTest {
         testStats.put("Intelligence", 10);
         testStats.put("Dexterity", 5);
         testStats.put("Wisdom", 10);
-        testStats.put("Current HP", 10);
+        testStats.put("Current HP",10);
         testStats.put("Level", 1);
         testStats.put("Current XP", 0);
 
@@ -30,5 +37,19 @@ public class MageTest {
 
 
 
+    }
+
+    @Test
+    public void testLevelUp(){
+        Mage mage = new Mage();
+        mage.setCurretXp(55);
+        mage.levelUp();
+        Integer xpExpected = 5;
+        Integer levelExpected = 2;
+        Integer expectedXpToLevel = 75;
+
+        Assert.assertEquals(mage.getCurretXp(), xpExpected);
+        Assert.assertEquals(mage.getLevel(),levelExpected);
+        Assert.assertEquals(mage.getXpToNextLevel(), expectedXpToLevel);
     }
 }

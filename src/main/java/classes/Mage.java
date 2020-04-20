@@ -1,14 +1,16 @@
 package classes;
 
+import monsters.Chicken;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Mage{
+public class Mage implements Classes {
     private Integer level = 1;
     private Integer curretXp = 0;
     private Integer xpToNextLevel = 50;
-    private Integer currentHp;
+    private Integer currentHp = 10;
     private Integer maxhp = 10;
     private String name;
     private Integer str = 4;
@@ -120,6 +122,15 @@ public class Mage{
 
     public void setWisdom(Integer wisdom) {
         this.wisdom = wisdom;
+    }
+
+    @Override
+    public void levelUp() {
+        if(this.curretXp > this.xpToNextLevel){
+            this.level += 1;
+            this.curretXp = curretXp - xpToNextLevel;
+            xpToNextLevel += (xpToNextLevel/2);
+        }
     }
 }
 
